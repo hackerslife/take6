@@ -1,0 +1,148 @@
+<html>
+
+<head>
+<title>Customer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+<script>
+function ValidateContactForm()
+{
+    var name = document.ContactForm.Name;
+    var email = document.ContactForm.Email;
+    var phone = document.ContactForm.Telephone;
+    var nocall = document.ContactForm.DoNotCall;
+    var what = document.ContactForm.Subject;
+    var comment = document.ContactForm.Comment;
+
+    if (name.value == "")
+    {
+        window.alert("Please enter your name.");
+        name.focus();
+        return false;
+    }
+    
+    if (email.value == "")
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (email.value.indexOf("@", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (email.value.indexOf(".", 0) < 0)
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+
+    if ((nocall.checked == false) && (phone.value == ""))
+    {
+        window.alert("Please enter your telephone number.");
+        phone.focus();
+        return false;
+    }
+
+    if (what.selectedIndex < 1)
+    {
+        alert("Please tell us how we can help you.");
+        what.focus();
+        return false;
+    }
+
+    if (comment.value == "")
+    {
+        window.alert("Please provide a detailed description or comment.");
+        comment.focus();
+        return false;
+    }
+    return true;
+}
+
+function EnableDisable(chkbx)
+{
+    if(chkbx.checked == true)
+    {
+        document.ContactForm.Telephone.disabled = true;
+    }
+    else
+    {
+        document.ContactForm.Telephone.disabled = false;
+    }
+}
+</script>
+</head>
+
+<body style="font-family:sans-serif; font-size:15px">
+<div id="mySidenav" class="sidenav">
+  <a href="home.html" id="home">Home</a>	
+  <a href="men.html" id="Him">Cambric</a>
+  <a href="women.html" id="Her">Canvas </a>
+  <a href="kids.html" id="Kids">Duck Cloth</a>
+  
+	
+  
+</div>
+<div id="mySidenav1" class="sidenav">
+  <a href="home.html" id="home">Home</a>	
+  <a href="gal.html" id="Him">Gallery</a>
+  <a href="aboutus.html" id="Her">About us </a>
+  <a href="customer.html" id="kids">Contact</a>
+	
+  
+</div>
+
+  <div class="caption">
+    <span class="border"><a href="index.html">GOYAL TEXTILES</a></span>
+  </div>
+<div align="center" style="margin-top:12%">
+<form method="post" action="request.html" name="ContactForm" >
+<table>
+    <tr>
+	<td>Name:</td>
+	<td><input type="text" size="65" name="Name"></td>
+	</tr>
+    <tr>
+	<td>E-mail Address:</td>
+	<td><input type="text" size="65" name="Email"></td>
+	</tr>
+    <tr>
+	<td>Please do not call me.</td>
+	<td><input type="checkbox" name="DoNotCall" onclick="EnableDisable(this);"></td>
+	</tr>
+	<tr><td>Telephone:</td>
+	<td><input type="text" size="65" name="Telephone"></td>
+	</tr>
+    <tr>
+	<td>What can we help you with?</td>
+	<td/><select type="text" value="" name="Subject">
+            <option>Customer Service</option>
+            <option>Question</option>
+            <option>Comment</option>
+            <option>Consultation</option>
+            <option>Other</option>
+    </select></td>
+	</tr>
+    <tr>
+	<td>Comments:</td>
+	<td><textarea cols="55" name="Comment"></textarea></td></tr>
+    <tr>
+	<td> </td>
+	<td><input type="submit" value="Send" name="submit">
+    <input type="reset" value="Reset" name="reset"></td>
+	</tr>
+</table>
+</form>
+</div>
+
+
+
+
+
+</body>
+</html>
